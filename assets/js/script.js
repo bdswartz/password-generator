@@ -62,7 +62,6 @@ var generatePassword = function (passwordLength) {
     return passwordString;
 };
 
-
 // Write the password string to the #password input
 function writePassword() {  
     var passwordLength = passwordLengthInput();
@@ -71,7 +70,6 @@ function writePassword() {
     // Check to make sure user chose at least one tranche of characters
     if (userChoice [0] [1] || userChoice [1] [1] || userChoice [2] [1] || userChoice [3] [1]) {
         var password = generatePassword(passwordLength);
-        console.log(password.length);
         var passwordText = document.querySelector("#password");
         passwordText.value = password;
     }
