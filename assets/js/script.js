@@ -158,7 +158,7 @@ function writePassword() {
     console.log(numericFlag);
     var password = generatePassword(passwordLength, specialCharFlag, upperCaseFlag, 
         lowerCaseFlag, numericFlag);
-    console.log(password);
+    console.log("password is " + password.length);
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
 
