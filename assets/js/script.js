@@ -16,7 +16,7 @@ var validateUserInput = function(userInput) {
     var passwordLengthInput = function() {
         var input = window.prompt("How long would you like your password to be (minimum 8 characters and maximum of 128 characters).")
         input = parseInt(input);
-        if (isNaN(input) || input < 8 || input > 127) {
+        if (isNaN(input) || input < 8 || input > 128) {
             window.alert("Please enter a number between 8 and 128 for password length.")
             return passwordLengthInput();
         }
@@ -105,14 +105,15 @@ var generatePassword = function (passwordLength, specialCharFlag, upperCaseFlag,
     // Compare letter code to criteria
     var stringLength = 0;
     var passwordString = "";
-    console.log(passwordLength);
-    console.log(specialCharFlag);
-    console.log(upperCaseFlag);
-    console.log(lowerCaseFlag);
-    console.log(numericFlag);
+    console.log(passwordLength)
+    console.log(typeof(specialCharFlag));
+    console.log(typeof(upperCaseFlag));
+    console.log(typeof(lowerCaseFlag));
+    console.log(typeof(numericFlag));
     while (stringLength < passwordLength) {
         // Generate a letter code for comparison to criteria
         var decCode = generateDecCode();
+        // Generate a letter from Decimal Code and add it to our password string
         console.log(decCode);
         if (decCode >= 48 && decCode <= 57 && numericFlag) {
             passwordString = passwordString + String.fromCharCode(decCode);
@@ -129,7 +130,7 @@ var generatePassword = function (passwordLength, specialCharFlag, upperCaseFlag,
             var stringLength = stringLength + 1;
             console.log(passwordString);
         }
-        else if (specialCharFlag) {
+        else if ((decCode >= 33 && decCode <= 47 || decCode >= 58 && decCode <= 64 || decCode >= 91 && decCode <= 96 || decCode >= 123 && decCode <= 126) && specialCharFlag) {
             passwordString = passwordString + String.fromCharCode(decCode);
             var stringLength = stringLength + 1;
             console.log(passwordString);
@@ -138,12 +139,9 @@ var generatePassword = function (passwordLength, specialCharFlag, upperCaseFlag,
             console.log("continue")
         };
     };
-
-    // Generate a letter and add it to our password string
-
-    // pass a full password string back to the writePassword function
-
-}
+     // pass a full password string back to the writePassword function
+    return passwordString;
+};
 
 
 // Write the password string to the #password input
@@ -160,10 +158,9 @@ function writePassword() {
     console.log(numericFlag);
     var password = generatePassword(passwordLength, specialCharFlag, upperCaseFlag, 
         lowerCaseFlag, numericFlag);
-
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
+    console.log(password);
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
 
 }
 
