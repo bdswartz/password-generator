@@ -19,3 +19,5 @@ https://bdswartz.github.io/password-generator/
 The following is of the HTML UI with an example password generated and entered into the textarea on the web page.
 
 ![UI for Password Generator](screen-shot.jpeg)
+
+OOPS, just gave you my Netflix password!
