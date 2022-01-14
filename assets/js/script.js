@@ -1,3 +1,5 @@
+// Define the user choice array that will carry all user choices and match them to the user prompts.
+// Index 0 in each nested array is to populate the user prompt and index 1 will carry the user response Boolean
 var userChoice = [
     ["special" , false],
     ["upper case" , false],
